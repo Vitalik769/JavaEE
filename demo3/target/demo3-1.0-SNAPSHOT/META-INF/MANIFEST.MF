@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+Created-By: IntelliJ IDEA
+Built-By: Vitalik
+Build-Jdk: GraalVM 21.0.4 - VM 23.1.4
+
