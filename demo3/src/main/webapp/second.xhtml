@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:f="http://java.sun.com/jsf/core">
 <h:head>
    <title>Друга сторінка</title>
 </h:head>
@@ -9,5 +9,26 @@
    <h:form>
       <h:commandLink value="Повернутися на головну" action="index"/>
    </h:form>
+   <h1>Контейнер даних</h1>
+
+   <!-- Форма для додавання елемента -->
+   <h:form>
+      <h:outputLabel for="newItem" value="Додати елемент:" />
+      <h:inputText id="newItem" value="#{dataController.newItem}" required="true" />
+      <h:commandButton value="Додати" action="#{dataController.addItem}" />
+   </h:form>
+
+   <!-- Виведення списку елементів -->
+   <h1>Список елементів</h1>
+   <h:dataTable value="#{dataController.container.all}" var="item">
+      <h:column>
+         <f:facet name="header">Елемент</f:facet>
+         #{item}
+      </h:column>
+      <h:column>
+         <f:facet name="header">Дії</f:facet>
+         <h:commandButton value="Видалити" action="#{dataController.removeItem(item)}" />
+      </h:column>
+   </h:dataTable>
 </h:body>
 </html>
